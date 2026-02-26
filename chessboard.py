@@ -13,7 +13,7 @@ objp[:,:2] = np.mgrid[0:9,0:6].T.reshape(-1,2) #Crea una cuadrícula de puntos e
 objpoints = [] # 3d point in real world space
 imgpoints = [] # 2d points in image plane.
 
-images = glob.glob('*.jpg')
+images = glob.glob('Used_Images/*.jpg')
 
 for Practica1 in images:
     img = cv.imread(Practica1)
@@ -52,7 +52,7 @@ dst = cv.remap(new_img, mapx, mapy, cv.INTER_LINEAR)
 # crop the image
 x, y, w, h = roi
 dst = dst[y:y+h, x:x+w]
-cv.imwrite('calibresult.png', dst)
+cv.imwrite('Calib_Images/calibresult.png', dst)
 
 mean_error = 0
 for i in range(len(objpoints)):
